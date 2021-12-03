@@ -10,14 +10,19 @@ def find_all_users():
 
 
 def main():
-    find_all_users()
-    person = {
-        'name': 'Sven',
-        'age': 67,
-        'email': 'svensvensson@doublename.com'
-    }
-    db.users.insert_one(person)
-    find_all_users()
+    # ADD DOCUMENT
+    # person = {
+    #     'name': 'Sven',
+    #     'age': 67,
+    #     'email': 'svensvensson@doublename.com'
+    # }
+    # db.users.insert_one(person)
+
+    result = db.users.find({"age": {"$lt": 40}})
+    for i in result:
+        print(i)
+
+    # find_all_users()
 
 
 if __name__ == '__main__':
